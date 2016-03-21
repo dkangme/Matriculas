@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Programa</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ programa.id }}</td>
+            </tr>
+            <tr>
+                <th>Codigo</th>
+                <td>{{ programa.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Horario</th>
+                <td>{{ programa.horario }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ programa.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Sede</th>
+                <td>{{ programa.sede }}</td>
+            </tr>
+            <tr>
+                <th>Tipo</th>
+                <td>{{ programa.tipo }}</td>
+            </tr>
+            <tr>
+                <th>Duracion</th>
+                <td>{{ programa.duracion }}</td>
+            </tr>
+            <tr>
+                <th>Duraciontitulo</th>
+                <td>{{ programa.duracionTitulo }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('programa_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('programa_edit', { 'id': programa.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

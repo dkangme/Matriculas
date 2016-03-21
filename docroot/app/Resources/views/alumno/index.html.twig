@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme searchForm 'bootstrap_3_horizontal_layout.html.twig' %}
+{% block body %}
+    
+    <div class="container">
+
+        <div class="row">
+            <h2>Buscar Alumno</h2>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                {{ form_start(searchForm) }}
+                {{ form_end(searchForm) }}
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8"></div>
+        </div>
+
+        <div class="navigation">
+            {{ knp_pagination_render(alumnos) }}
+        </div>
+
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Rut</th>
+                    <th>Alumno</th>
+                    <th>Fecha Nacimiento</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for alumno in alumnos %}
+                <tr>
+                    <td><a href="{{ path('alumno_show', { 'id': alumno.id }) }}">{{ alumno.id }}</a></td>
+                    <td>{{ alumno.rut }}</td>
+                    <td>{{ alumno.apepPaterno }} {{ alumno.apepMaterno }} {{ alumno.nombres }}</td>
+                    <td>{% if alumno.fechaNacimiento %}{{ alumno.fechaNacimiento|date('d-m-Y') }}{% endif %}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('alumno_show', { 'id': alumno.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('alumno_edit', { 'id': alumno.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="navigation">
+            {{ knp_pagination_render(alumnos) }}
+        </div>
+    
+        <ul>
+            <li>
+                <a href="{{ path('alumno_new') }}">Create a new entry</a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

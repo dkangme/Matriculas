@@ -1,0 +1,78 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Arancel
+ *
+ * @ORM\Table(name="Arancel", indexes={@ORM\Index(name="fk_Arancel_Programa1_idx", columns={"Programa_id"})})
+ * @ORM\Entity
+ */
+class Arancel
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ano", type="integer", nullable=true)
+     */
+    private $ano;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="valor_matricula", type="integer", nullable=true)
+     */
+    private $valorMatricula;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="arancel", type="integer", nullable=true)
+     */
+    private $arancel;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="costo_titulo", type="integer", nullable=true)
+     */
+    private $costoTitulo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="costo_diploma", type="integer", nullable=true)
+     */
+    private $costoDiploma;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="observaciones", type="string", length=512, nullable=true)
+     */
+    private $observaciones;
+
+    /**
+     * @var \AppBundle\Entity\Programa
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Programa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Programa_id", referencedColumnName="id")
+     * })
+     */
+    private $programa;
+
+
+}
+

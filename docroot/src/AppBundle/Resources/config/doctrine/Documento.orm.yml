@@ -1,0 +1,57 @@
+AppBundle\Entity\Documento:
+    type: entity
+    table: Documento
+    indexes:
+        fk_Documento_tipo_documento1_idx:
+            columns:
+                - tipo_documento_id
+        fk_Documento_Alumno1_idx:
+            columns:
+                - Alumno_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        fecha:
+            type: date
+            nullable: true
+        monto:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        numeroDocumento:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: numero_documento
+    manyToOne:
+        alumno:
+            targetEntity: Alumno
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Alumno_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        tipoDocumento:
+            targetEntity: TipoDocumento
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tipo_documento_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

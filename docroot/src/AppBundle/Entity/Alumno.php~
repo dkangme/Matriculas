@@ -1,0 +1,82 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Alumno
+ *
+ * @ORM\Table(name="Alumno", uniqueConstraints={@ORM\UniqueConstraint(name="rut_UNIQUE", columns={"rut"})})
+ * @ORM\Entity
+ */
+class Alumno
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="rut", type="integer", nullable=false)
+     */
+    private $rut;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apep_paterno", type="string", length=45, nullable=true)
+     */
+    private $apepPaterno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apep_materno", type="string", length=45, nullable=true)
+     */
+    private $apepMaterno;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombres", type="string", length=45, nullable=true)
+     */
+    private $nombres;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sexo", type="string", length=1, nullable=true)
+     */
+    private $sexo;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_nacimiento", type="date", nullable=true)
+     */
+    private $fechaNacimiento;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nacionalidad", type="string", length=45, nullable=true)
+     */
+    private $nacionalidad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numero_pasaporte", type="string", length=45, nullable=true)
+     */
+    private $numeroPasaporte;
+
+
+}
+

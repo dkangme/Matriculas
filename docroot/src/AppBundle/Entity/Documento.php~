@@ -1,0 +1,67 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Documento
+ *
+ * @ORM\Table(name="Documento", indexes={@ORM\Index(name="fk_Documento_tipo_documento1_idx", columns={"tipo_documento_id"}), @ORM\Index(name="fk_Documento_Alumno1_idx", columns={"Alumno_id"})})
+ * @ORM\Entity
+ */
+class Documento
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha", type="date", nullable=true)
+     */
+    private $fecha;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="monto", type="integer", nullable=true)
+     */
+    private $monto;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="numero_documento", type="string", length=45, nullable=true)
+     */
+    private $numeroDocumento;
+
+    /**
+     * @var \AppBundle\Entity\Alumno
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Alumno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Alumno_id", referencedColumnName="id")
+     * })
+     */
+    private $alumno;
+
+    /**
+     * @var \AppBundle\Entity\TipoDocumento
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\TipoDocumento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="tipo_documento_id", referencedColumnName="id")
+     * })
+     */
+    private $tipoDocumento;
+
+
+}
+

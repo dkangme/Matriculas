@@ -1,3 +1,20 @@
+app_programa:
+    resource: "@AppBundle/Controller/ProgramaController.php"
+    type:     annotation
+
+app_alumno:
+    resource: "@AppBundle/Controller/AlumnoController.php"
+    type:     annotation
+
+app_alumno:
+    resource: "@AppBundle/Controller/AlumnoController.php"
+    type:     annotation
+
+auth:
+    resource: "@AuthBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

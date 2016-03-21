@@ -1,0 +1,75 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Programa
+ *
+ * @ORM\Table(name="Programa", uniqueConstraints={@ORM\UniqueConstraint(name="codigo_UNIQUE", columns={"codigo"})})
+ * @ORM\Entity
+ */
+class Programa
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=16, nullable=false)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="horario", type="string", length=45, nullable=true)
+     */
+    private $horario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=45, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sede", type="string", length=45, nullable=true)
+     */
+    private $sede;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo", type="string", length=45, nullable=true)
+     */
+    private $tipo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duracion", type="integer", nullable=true)
+     */
+    private $duracion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duracion_titulo", type="integer", nullable=true)
+     */
+    private $duracionTitulo;
+
+
+}
+

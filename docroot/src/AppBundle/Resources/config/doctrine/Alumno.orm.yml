@@ -1,0 +1,66 @@
+AppBundle\Entity\Alumno:
+    type: entity
+    table: Alumno
+    uniqueConstraints:
+        rut_UNIQUE:
+            columns:
+                - rut
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        rut:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        apepPaterno:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: apep_paterno
+        apepMaterno:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: apep_materno
+        nombres:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        sexo:
+            type: string
+            nullable: true
+            length: 1
+            options:
+                fixed: true
+        fechaNacimiento:
+            type: date
+            nullable: true
+            column: fecha_nacimiento
+        nacionalidad:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+        numeroPasaporte:
+            type: string
+            nullable: true
+            length: 45
+            options:
+                fixed: false
+            column: numero_pasaporte
+    lifecycleCallbacks: {  }

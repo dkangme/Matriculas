@@ -1,0 +1,63 @@
+AppBundle\Entity\Arancel:
+    type: entity
+    table: Arancel
+    indexes:
+        fk_Arancel_Programa1_idx:
+            columns:
+                - Programa_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        ano:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        valorMatricula:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: valor_matricula
+        arancel:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        costoTitulo:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: costo_titulo
+        costoDiploma:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: costo_diploma
+        observaciones:
+            type: string
+            nullable: true
+            length: 512
+            options:
+                fixed: false
+    manyToOne:
+        programa:
+            targetEntity: Programa
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                Programa_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

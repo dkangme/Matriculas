@@ -1,0 +1,81 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Historial
+ *
+ * @ORM\Table(name="Historial", indexes={@ORM\Index(name="fk_Historial_Programa_idx", columns={"Programa_id"}), @ORM\Index(name="fk_Historial_Alumno1_idx", columns={"Alumno_id"})})
+ * @ORM\Entity
+ */
+class Historial
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ano_ingreso", type="integer", nullable=true)
+     */
+    private $anoIngreso;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="semestre_ingreso", type="integer", nullable=true)
+     */
+    private $semestreIngreso;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="semestres_suspension", type="integer", nullable=true)
+     */
+    private $semestresSuspension;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="estudiante_titulo", type="boolean", nullable=false)
+     */
+    private $estudianteTitulo = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="ano_matricula", type="integer", nullable=false)
+     */
+    private $anoMatricula = '2010';
+
+    /**
+     * @var \AppBundle\Entity\Alumno
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Alumno")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Alumno_id", referencedColumnName="id")
+     * })
+     */
+    private $alumno;
+
+    /**
+     * @var \AppBundle\Entity\Programa
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Programa")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="Programa_id", referencedColumnName="id")
+     * })
+     */
+    private $programa;
+
+
+}
+
